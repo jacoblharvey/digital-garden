@@ -2,6 +2,8 @@
 
 > A space for tending to ideas as they take form 
 
+[![Deploy to GitHub Pages](https://github.com/jacoblharvey/digtial-garden/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/jacoblharvey/digtial-garden/actions/workflows/deploy.yml)
+
 ## Commands
 
 All commands are run from the root of the project, from a terminal:
