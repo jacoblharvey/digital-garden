@@ -15,6 +15,9 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm build`           | Build your production site to `./dist/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |
 | `pnpm format`          | Fix formatting with Prettier                     |
+| `pnpm format:check`    | Check potential fixes with Prettier              |
+| `pnpm lint`            | Lint with ESLint                                 |
+| `pnpm lint:fix`        | Fix lint errors with ESLint                      |
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
