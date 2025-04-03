@@ -4,6 +4,7 @@ export default {
     "stylelint-config-standard",
     "stylelint-config-sass-guidelines",
     "stylelint-prettier/recommended",
+    "stylelint-config-astro",
   ],
   rules: {
     "@stylistic/string-quotes": ["double"],
