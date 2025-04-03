@@ -9,8 +9,8 @@
     "astro": "astro",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "eslint . && stylelint 'src/styles/**'",
-    "lint:fix": "eslint --fix . && stylelint --fix 'src/styles/**'"
+    "lint": "eslint . && stylelint src/styles/**",
+    "lint:fix": "eslint --fix . && stylelint --fix src/styles/**"
   },
   "dependencies": {
     "astro": "^5.5.6"
