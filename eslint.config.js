@@ -10,7 +10,9 @@ export default defineConfig([
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
-  { extends: [eslintPluginPrettierRecommended], rules: { "prettier/prettier": "warn" } },
-  // { ignores: ["node_modules/", "dist/", ".astro/", ".github/"] },
-  { ignores: ["dist/", ".astro/", "node_modules/" ] },
+  {
+    extends: [eslintPluginPrettierRecommended],
+    rules: { "prettier/prettier": "warn" },
+  },
+  { ignores: ["node_modules/", "dist/", ".astro/", ".github/"] },
 ]);

@@ -1,6 +1,6 @@
 # Digital Garden
 
-> A space for tending to ideas as they take form 
+> A space for tending to ideas as they take form
 
 [![Deploy to GitHub Pages](https://github.com/jacoblharvey/digtial-garden/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/jacoblharvey/digtial-garden/actions/workflows/deploy.yml)
 
@@ -8,9 +8,9 @@
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:4321`      |
 | `pnpm build`           | Build your production site to `./dist/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |
