@@ -1,7 +1,7 @@
 ---
+import "@styles/global.scss";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-
 const { pageTitle } = Astro.props;
 ---
 
@@ -14,7 +14,7 @@ const { pageTitle } = Astro.props;
     <title>{`${pageTitle} | Jacob Harvey`}</title>
   </head>
   <body>
-    <Header pageTitle={pageTitle} />
+    <Header />
     <slot />
     <Footer />
   </body>

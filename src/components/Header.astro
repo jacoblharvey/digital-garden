@@ -1,10 +1,31 @@
 ---
 import Navigation from "./Navigation.astro";
-
-const { pageTitle } = Astro.props;
 ---
 
+<style lang="scss">
+  header {
+    border-bottom: 1px solid #e9e9ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 768px;
+
+    a {
+      font-weight: bolder;
+      font-size: 1.5rem;
+      text-decoration: none;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+  }
+</style>
+
 <header>
+  <a class="home" href="/">Jacob Harvey</a>
   <Navigation />
-  <h1>{pageTitle}</h1>
 </header>
