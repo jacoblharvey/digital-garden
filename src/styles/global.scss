@@ -1,0 +1,72 @@
+@use "variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  background-color: variables.$color-light;
+  color: variables.$color-dark;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  min-height: 100vh;
+  line-height: 1.5;
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  max-width: 768px;
+  padding: 0 16px;
+  flex-grow: 1;
+  margin: 0 auto;
+}
+
+a {
+  color: currentcolor;
+  text-decoration-color: variables.$color-primary;
+  text-decoration-thickness: 0.3ex;
+  text-underline-offset: 0.3ex;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
