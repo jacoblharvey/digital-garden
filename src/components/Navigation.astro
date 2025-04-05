@@ -76,3 +76,20 @@
     <li><a href="/about/">About</a></li>
   </ul>
 </nav>
+
+<script type="module">
+  const buttons = document.querySelectorAll("button");
+  const svgs = document.querySelectorAll("svg");
+  const menuItems = document.querySelectorAll("ul");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      svgs.forEach((svg) => {
+        svg.classList.toggle("hidden");
+      });
+
+      menuItems.forEach((item) => {
+        item.classList.toggle("open");
+      });
+    });
+  });
+</script>
