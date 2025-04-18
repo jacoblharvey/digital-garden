@@ -3,8 +3,10 @@ import Navigation from "./Navigation.astro";
 ---
 
 <style lang="scss">
+  @use "@styles/colors";
+
   header {
-    border-bottom: 1px solid #e9e9ed;
+    border-bottom: 1px solid colors.$border;
     display: flex;
     justify-content: space-between;
     align-items: center;
