@@ -46,6 +46,25 @@
     text-decoration: none;
   }
 
+  a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background-color: colors.$primary;
+    bottom: 8px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.15s ease-out;
+  }
+
+  a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
   .hidden {
     display: none;
   }
