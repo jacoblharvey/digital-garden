@@ -74,8 +74,8 @@
   }
 </style>
 
-<nav>
-  <button>
+<nav id="menu">
+  <button id="menu-button">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
       <path
         fill="#000"
@@ -97,24 +97,33 @@
         clip-rule="evenodd"></path>
     </svg>
   </button>
-  <ul>
+  <ul id="menu-links">
     <li><a href="/about/">About</a></li>
   </ul>
 </nav>
 
 <script type="module">
-  const buttons = document.querySelectorAll("button");
-  const svgs = document.querySelectorAll("svg");
-  const menuItems = document.querySelectorAll("ul");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      svgs.forEach((svg) => {
-        svg.classList.toggle("hidden");
-      });
+  const menuButton = document.getElementById("menu-button");
+  const menuLinks = document.getElementById("menu-links");
+  const icons = document.querySelectorAll("svg");
 
-      menuItems.forEach((item) => {
-        item.classList.toggle("open");
-      });
+  const toggleMenu = () => {
+    icons.forEach((icon) => {
+      icon.classList.toggle("hidden");
     });
+    menuLinks.classList.toggle("open");
+  };
+
+  // Toggle menu on button click
+  menuButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close menu when Esc is pressed
+  document.documentElement.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuLinks.classList.contains("open")) {
+      toggleMenu();
+    }
   });
 </script>
