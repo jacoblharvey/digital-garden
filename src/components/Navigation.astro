@@ -1,5 +1,5 @@
 ---
-
+const pathname = Astro.url.pathname;
 ---
 
 <style lang="scss">
@@ -46,23 +46,38 @@
     text-decoration: none;
   }
 
-  a::before {
+  a:not(.active)::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 4px;
-    border-radius: 4px;
-    background-color: colors.$primary;
-    bottom: 8px;
-    left: 0;
+    width: 60%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: colors.$dark;
+    bottom: 20%;
+    left: 20%;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform 0.15s ease-out;
   }
 
-  a:hover::before {
+  a:not(.active):hover::before {
     transform-origin: left;
     transform: scaleX(1);
+  }
+
+  .active {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .active::before {
+    content: "\261e\0020\0020";
+    white-space: pre;
+  }
+
+  .active::after {
+    content: "\0020\0020\261c";
+    white-space: pre;
   }
 
   .hidden {
@@ -98,7 +113,9 @@
     </svg>
   </button>
   <ul id="menu-links">
-    <li><a href="/about/">About</a></li>
+    <li>
+      <a href="/about" class={pathname === "/about" ? "active" : ""}>About</a>
+    </li>
   </ul>
 </nav>
 

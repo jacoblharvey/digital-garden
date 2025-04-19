@@ -1,5 +1,6 @@
 ---
 import Navigation from "./Navigation.astro";
+const pathname = Astro.url.pathname;
 ---
 
 <style lang="scss">
@@ -25,10 +26,15 @@ import Navigation from "./Navigation.astro";
       top: 12px;
       left: 24px;
     }
+
+    .active {
+      cursor: default;
+      pointer-events: none;
+    }
   }
 </style>
 
 <header>
-  <a href="/">Jacob Harvey</a>
+  <a href="/" class={pathname === "/" ? "active" : ""}>Jacob Harvey</a>
   <Navigation />
 </header>
