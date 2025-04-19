@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const pageTitle = "Journal";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <main>
+    <article class="flow">
+      <h1>{pageTitle}</h1>
+      <p>
+        A collection of journal entries I've written. Keep what resonates and
+        leave the rest. &#x270c;
+      </p>
+      <p>Read my latest. <a href="/journal/mock">&#x2192;</a></p>
+    </article>
+  </main>
+</BaseLayout>
