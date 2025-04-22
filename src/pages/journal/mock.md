@@ -1,7 +1,10 @@
 ---
+layout: ../../layouts/JournalLayout.astro
+title: Mock Journal Entry
+pubDate: 2025-04-21
+lede: This is a mock journal entry for development purposes.
+author: Jacob Harvey
 ---
-
-# Nulla vitae elit libero, a pharetra augue
 
 Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.
 
