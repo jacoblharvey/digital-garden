@@ -1,6 +1,9 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-
+import BaseLayout from "@layouts/BaseLayout.astro";
+import JournalEntry from "@components/JournalEntry.astro";
+const allEntries = Object.values(
+  import.meta.glob("./journal/*.md", { eager: true }),
+);
 const pageTitle = "Journal";
 ---
 
@@ -13,6 +16,14 @@ const pageTitle = "Journal";
         leave the rest. &#x270c;
       </p>
       <p>Read my latest. <a href="/journal/mock">&#x2192;</a></p>
+      <h2>All Entries</h2>
+      <ul>
+        {
+          allEntries.map((entry: any) => (
+            <JournalEntry url={entry.url} title={entry.frontmatter.title} />
+          ))
+        }
+      </ul>
     </article>
   </main>
 </BaseLayout>
