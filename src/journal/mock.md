@@ -1,8 +1,7 @@
 ---
-layout: ../../layouts/JournalLayout.astro
 title: Mock Journal Entry
-pubDate: 2025-04-21
 lede: This is a mock journal entry for development purposes.
+pubDate: 2025-04-21
 author: Jacob Harvey
 ---
 

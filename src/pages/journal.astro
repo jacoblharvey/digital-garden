@@ -1,11 +1,26 @@
 ---
+import { getCollection } from "astro:content";
+
 import BaseLayout from "@layouts/BaseLayout.astro";
-import JournalEntry from "@components/JournalEntry.astro";
-const allEntries = Object.values(
-  import.meta.glob("./journal/*.md", { eager: true }),
-);
+import JournalEntryCard from "@components/JournalEntryCard.astro";
+
+const allEntries = await getCollection("journal");
 const pageTitle = "Journal";
+const locale = "en-US";
+const options = {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+};
 ---
+
+<style lang="scss">
+  ul {
+    display: grid;
+    list-style: none;
+    padding-inline-start: 0;
+  }
+</style>
 
 <BaseLayout pageTitle={pageTitle}>
   <main>
@@ -20,7 +35,11 @@ const pageTitle = "Journal";
       <ul>
         {
           allEntries.map((entry: any) => (
-            <JournalEntry url={entry.url} title={entry.frontmatter.title} />
+            <JournalEntryCard
+              url={`/journal/${entry.id}`}
+              title={entry.data.title}
+              pubDate={entry.data.pubDate.toLocaleDateString(locale, options)}
+            />
           ))
         }
       </ul>

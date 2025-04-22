@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 const { frontmatter } = Astro.props;
+
+const locale = "en-US";
+const options = {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+};
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
@@ -9,9 +16,7 @@ const { frontmatter } = Astro.props;
       <h1>{frontmatter.title}</h1>
       <p class="lede">{frontmatter.lede}</p>
       <p class="byline">
-        {frontmatter.author} &#x2022; {
-          frontmatter.pubDate.toString().slice(0, 10)
-        }
+        {frontmatter.pubDate.toLocaleDateString(locale, options)}
       </p>
       <slot />
     </article>
