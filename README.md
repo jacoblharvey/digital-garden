@@ -26,3 +26,12 @@ All commands are run from the root of the project, from a terminal:
 ### Docs and Tools
 
 - [Astro Docs](https://docs.astro.build)
+- [Beautiful Free Images & Pictures | Unplash](https://unsplash.com/)
+- [CSS-Tricks - A Website About Making Websites](https://css-tricks.com/)
+- [google/woff2](https://github.com/google/woff2)
+- [Squoosh](https://squoosh.app/)
+- [SVOMG - SVGO's Missing GUI](https://jakearchibald.github.io/svgomg/)
+
+### Inspiration
+
+- [Some simple ways to make content look good - Piccalilli](https://piccalil.li/blog/some-simple-ways-to-make-content-look-good/)
