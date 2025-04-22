@@ -127,12 +127,29 @@ select {
   line-height: 1.3;
 }
 
-.lede + * {
+.byline {
+  font-size: size-steps.$step-0;
+  font-weight: weights.$bold;
+  text-align: right;
+
+  --flow-space: 0.5em;
+}
+
+.byline + * {
   --flow-space: 2em;
 }
 
 h1 + *:not(.lede) {
   --flow-space: 2em;
+}
+
+.lede + *:not(.byline) {
+  --flow-space: 2em;
+}
+
+blockquote > p {
+  border-left: 2px solid colors.$dark;
+  padding-left: 8px;
 }
 
 @media (prefers-reduced-motion: reduce) {
