@@ -2,7 +2,7 @@
 
 > A space for tending to ideas as they take form
 
-[![Deploy to GitHub Pages](https://github.com/jacoblharvey/digtial-garden/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/jacoblharvey/digtial-garden/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/jacoblharvey/digital-garden/actions/workflows/deploy.yml/badge.svg?branch=release)](https://github.com/jacoblharvey/digital-garden/actions/workflows/deploy.yml)
 
 ## Commands
 
