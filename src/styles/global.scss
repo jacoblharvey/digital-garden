@@ -125,12 +125,13 @@ select {
   font-size: size-steps.$step-2;
   font-style: italic;
   line-height: 1.3;
+  text-align: center;
 }
 
 .byline {
   font-size: size-steps.$step-0;
   font-weight: weights.$bold;
-  text-align: right;
+  text-align: center;
 
   --flow-space: 0.5em;
 }
