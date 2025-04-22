@@ -1,7 +1,59 @@
 ---
-const { title, url, pubDate } = Astro.props;
+const { title, url, pubDate, lede } = Astro.props;
 ---
 
+<style lang="scss">
+  @use "@styles/size-steps";
+  @use "@styles/weights";
+  @use "@styles/colors";
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid colors.$border;
+  }
+
+  li:not(:last-child) {
+    padding-bottom: 16px;
+  }
+
+  svg {
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: weights.$semibold;
+  }
+
+  li > a {
+    padding: 8px;
+  }
+
+  p {
+    font-size: size-steps.$step-0;
+  }
+
+  a + p {
+    font-weight: weights.$medium;
+    color: colors.$grey;
+  }
+</style>
+
 <li>
-  <a href={url}>{title}</a> | {pubDate}
+  <div>
+    <a href={url}>{title}</a>
+    <p>{pubDate}</p>
+    <p>{lede}</p>
+  </div>
+  <a href={url}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+      <path
+        fill="#000"
+        fill-rule="evenodd"
+        d="M13.475 19.03a.75.75 0 0 0 1.06 0l6.25-6.25a.75.75 0 0 0 0-1.06l-6.25-6.25a.75.75 0 1 0-1.06 1.06l4.97 4.97H3.75a.75.75 0 1 0 0 1.5h14.695l-4.97 4.97a.75.75 0 0 0 0 1.06Z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </a>
 </li>

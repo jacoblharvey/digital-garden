@@ -16,9 +16,9 @@ const options = {
 
 <style lang="scss">
   ul {
-    display: grid;
     list-style: none;
     padding-inline-start: 0;
+    margin-bottom: 0;
   }
 </style>
 
@@ -39,6 +39,7 @@ const options = {
               url={`/journal/${entry.id}`}
               title={entry.data.title}
               pubDate={entry.data.pubDate.toLocaleDateString(locale, options)}
+              lede={entry.data.lede}
             />
           ))
         }
