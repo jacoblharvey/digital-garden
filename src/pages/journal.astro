@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 
-import BaseLayout from "@layouts/BaseLayout.astro";
 import JournalEntryCard from "@components/JournalEntryCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const allEntries = await getCollection("journal");
 const pageTitle = "Journal";

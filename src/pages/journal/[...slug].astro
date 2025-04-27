@@ -1,6 +1,6 @@
 ---
-import { getCollection, render } from "astro:content";
 import JournalEntryLayout from "@layouts/JournalEntryLayout.astro";
+import { getCollection, render } from "astro:content";
 
 export const getStaticPaths = async () => {
   const entries = await getCollection("journal");
