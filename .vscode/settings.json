@@ -6,5 +6,6 @@
   "eslint.validate": ["javascript", "astro", "typescript", "typescriptreact"],
   "css.validate": false,
   "scss.validate": false,
-  "stylelint.validate": ["astro", "css", "scss"]
+  "stylelint.validate": ["astro", "css", "scss"],
+  "typescript.validate.enable": false
 }
