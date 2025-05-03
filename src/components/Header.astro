@@ -8,23 +8,23 @@ const pathname = Astro.url.pathname;
   @use "@styles/weights";
 
   header {
-    border-bottom: 1px solid colors.$border;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    margin: 0 auto 32px;
     position: relative;
+    display: flex;
     width: 100%;
     max-width: 768px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid colors.$border;
+    margin: 0 auto 32px;
 
     a {
-      font-weight: weights.$bold;
-      font-size: 1.8rem;
-      text-decoration: none;
       position: absolute;
       top: 12px;
       left: 24px;
+      font-size: 1.8rem;
+      font-weight: weights.$bold;
+      text-decoration: none;
     }
 
     .active {
