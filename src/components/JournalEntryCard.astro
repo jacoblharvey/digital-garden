@@ -36,17 +36,34 @@ const { title, url, pubDate, lede } = Astro.props;
     font-size: size-steps.$step-0;
   }
 
-  a + p {
+  .card {
+    // Overflow text at svg padding
+    max-width: calc(100% - 40px);
+  }
+
+  .card > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-title > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-byline {
+    color: colors.$battleship-gray;
     font-weight: weights.$medium;
-    color: colors.$grey;
   }
 </style>
 
 <li>
-  <div>
-    <a href={url}>{title}</a>
-    <p>{pubDate}</p>
-    <p>{lede}</p>
+  <div class="card">
+    <a class="card-title" href={url}><p>{title}</p></a>
+    <p class="card-lede">{lede}</p>
+    <p class="card-byline">{pubDate}</p>
   </div>
   <a href={url}>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
