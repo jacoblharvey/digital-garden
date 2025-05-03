@@ -1,0 +1,29 @@
+---
+import TOCLink from "@components/TOCLink.astro";
+
+const { headings } = Astro.props;
+---
+
+<style lang="scss">
+  @use "@styles/colors";
+
+  ol {
+    margin: 0;
+    list-style: none;
+    padding-inline-start: 0;
+  }
+</style>
+
+<nav>
+  <p>Contents</p>
+  <ol>
+    {
+      headings.map((heading) => (
+        <TOCLink
+          url={new URL(`#${heading.slug}`, Astro.url)}
+          text={heading.text}
+        />
+      ))
+    }
+  </ol>
+</nav>

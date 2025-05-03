@@ -1,0 +1,18 @@
+---
+const { url, text } = Astro.props;
+---
+
+<style lang="scss">
+  @use "@styles/weights";
+
+  a > p {
+    overflow: hidden;
+    font-weight: weights.$medium;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+
+<li>
+  <a href={url}><p>{text}</p></a>
+</li>
