@@ -1,4 +1,5 @@
 ---
+import TableOfContents from "@components/TableOfContents.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const { frontmatter, headings } = Astro.props;
@@ -12,14 +13,14 @@ const options = {
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <main>
-    <article class="flow">
-      <h1>{frontmatter.title}</h1>
-      <p class="lede">{frontmatter.lede}</p>
-      <p class="byline">
-        {frontmatter.pubDate.toLocaleDateString(locale, options)}
-      </p>
-      <slot />
-    </article>
+  <main class="flow">
+    <h1>{frontmatter.title}</h1>
+    <p class="lede">{frontmatter.lede}</p>
+    <p class="byline">
+      {frontmatter.pubDate.toLocaleDateString(locale, options)}
+    </p>
+    <!-- TODO: Hide TOC if there are no headings -->
+    <TableOfContents headings={headings} />
+    <slot />
   </main>
 </BaseLayout>
