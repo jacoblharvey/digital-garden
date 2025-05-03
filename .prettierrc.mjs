@@ -9,7 +9,7 @@ export default {
   ],
   overrides: [
     {
-      files: ["**/*.astro"],
+      files: "*.astro",
       options: {
         parser: "astro",
       },

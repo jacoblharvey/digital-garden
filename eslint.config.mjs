@@ -1,16 +1,14 @@
 import js from "@eslint/js";
+import prettierConfig from "eslint-config-prettier/flat";
 import astro from "eslint-plugin-astro";
-import prettier from "eslint-plugin-prettier";
-import { defineConfig } from "eslint/config";
 import globals from "globals";
-import tseslint from "typescript-eslint";
+import { createRequire } from "module";
 
-// Parsers
-const tsParser = tseslint.parser;
-const astroParser = astro.parser;
+const require = createRequire(import.meta.url);
+const espree = require("espree");
+const astroParser = (await import("astro-eslint-parser")).default;
 
-export default defineConfig([
-  // Global configuration
+export default [
   {
     languageOptions: {
       globals: {
@@ -19,45 +17,37 @@ export default defineConfig([
       },
     },
   },
-
-  // Base configs
   js.configs.recommended,
-  tseslint.configs.recommended,
-
-  // Prettier config
-  {
-    plugins: {
-      prettier: prettier,
-    },
-    rules: {
-      // disable warnings, since prettier should format on save
-      "prettier/prettier": "off",
-    },
-  },
-
-  // Astro setup with a11y
-  astro.configs.recommended,
-  astro.configs["jsx-a11y-recommended"],
+  prettierConfig,
   {
     files: ["**/*.astro"],
+    plugins: {
+      astro,
+    },
     languageOptions: {
       parser: astroParser,
       parserOptions: {
-        parser: tsParser,
-        extraFileExtensions: [".astro"],
+        parser: espree,
         sourceType: "module",
         ecmaVersion: "latest",
-        project: "./tsconfig.json",
+      },
+      globals: {
+        Astro: "readonly",
       },
     },
     rules: {
-      "no-undef": "off", // Disable "not defined" errors for specific Astro types that are globally available (ImageMetadata)
-      "@typescript-eslint/no-explicit-any": "off",
+      ...astro.configs.recommended.rules,
     },
   },
-
-  // Ignore patterns
+  {
+    files: ["**/*.{js,cjs,mjs}"],
+    languageOptions: {
+      parser: espree,
+      ecmaVersion: "latest",
+      sourceType: "module",
+    },
+  },
   {
     ignores: ["node_modules/", "dist/", ".astro/", ".github/"],
   },
-]);
+];
