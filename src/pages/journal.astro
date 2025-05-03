@@ -23,27 +23,25 @@ const options = {
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-  <main>
-    <article class="flow">
-      <h1>{pageTitle}</h1>
-      <p>
-        A collection of journal entries I've written. Keep what resonates and
-        leave the rest. &#x270c;
-      </p>
-      <p>Read my latest. <a href="/journal/mock">&#x2192;</a></p>
-      <h2>All Entries</h2>
-      <ul>
-        {
-          allEntries.map((entry) => (
-            <JournalEntryCard
-              url={`/journal/${entry.id}`}
-              title={entry.data.title}
-              pubDate={entry.data.pubDate.toLocaleDateString(locale, options)}
-              lede={entry.data.lede}
-            />
-          ))
-        }
-      </ul>
-    </article>
+  <main class="flow">
+    <h1>{pageTitle}</h1>
+    <p>
+      A collection of journal entries I've written. Keep what resonates and
+      leave the rest. &#x270c;
+    </p>
+    <p>Read my latest. <a href="/journal/mock">&#x2192;</a></p>
+    <h2>All Entries</h2>
+    <ul>
+      {
+        allEntries.map((entry) => (
+          <JournalEntryCard
+            url={`/journal/${entry.id}`}
+            title={entry.data.title}
+            pubDate={entry.data.pubDate.toLocaleDateString(locale, options)}
+            lede={entry.data.lede}
+          />
+        ))
+      }
+    </ul>
   </main>
 </BaseLayout>
