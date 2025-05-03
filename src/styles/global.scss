@@ -4,30 +4,30 @@
 
 @font-face {
   font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400 800;
   src:
     url("/fonts/EBGaramond-VariableFont_wght.woff2") format("woff2-variations"),
     url("/fonts/EBGaramond-Regular.woff2") format("woff2");
-  font-weight: 400 800;
-  font-style: normal;
 }
 
 @font-face {
   font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400 800;
   src:
     url("/fonts/EBGaramond-Italic-VariableFont_wght.woff2")
       format("woff2-variations"),
     url("/fonts/EBGaramond-Italic.woff2") format("woff2");
-  font-weight: 400 800;
-  font-style: italic;
 }
 
 @font-face {
   font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 700;
   src:
     url("/fonts/EBGaramond-VariableFont_wght.woff2") format("woff2-variations"),
     url("/fonts/EBGaramond-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
 }
 
 *,
@@ -42,50 +42,50 @@ html:focus-within {
 
 body {
   display: flex;
-  flex-direction: column;
   min-width: 320px;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
   background-color: colors.$light;
   color: colors.$dark;
   font-family: "EB Garamond", Georgia, serif;
   font-size: size-steps.$step-1;
-  font-weight: weights.$regular;
   font-style: normal;
-  min-height: 100vh;
+  font-weight: weights.$regular;
   line-height: 1.7;
-  margin: 0;
 }
 
 main {
   width: 100%;
   max-width: 640px;
-  padding: 0 16px;
   flex-grow: 1;
+  padding: 0 16px;
   margin: 0 auto;
 }
 
 h1 {
+  margin: 0;
   font-size: size-steps.$step-4;
   font-weight: weights.$bold;
   line-height: 1.1;
   text-align: center;
   text-wrap: balance;
-  margin: 0;
 }
 
 h2 {
+  margin: 0;
   font-size: size-steps.$step-3;
   font-weight: weights.$bold;
   line-height: 1.2;
   text-wrap: balance;
-  margin: 0;
 }
 
 h3 {
+  margin: 0;
   font-size: size-steps.$step-2;
   font-weight: weights.$bold;
   line-height: 1.3;
   text-wrap: balance;
-  margin: 0;
 }
 
 p {
@@ -98,8 +98,8 @@ a {
 
 img,
 picture {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 input,
@@ -123,14 +123,15 @@ select {
 
 .lede {
   font-size: size-steps.$step-2;
-  font-style: italic;
   line-height: 1.3;
   text-align: center;
+  text-wrap: balance;
 }
 
 .byline {
+  color: colors.$battleship-gray;
   font-size: size-steps.$step-0;
-  font-weight: weights.$bold;
+  font-weight: weights.$semibold;
   text-align: center;
 
   --flow-space: 0.5em;
@@ -149,8 +150,9 @@ h1 + *:not(.lede) {
 }
 
 blockquote > p {
-  border-left: 2px solid colors.$dark;
   padding-left: 8px;
+  border-left: 2px solid colors.$battleship-gray;
+  color: colors.$battleship-gray;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -163,7 +165,7 @@ blockquote > p {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
