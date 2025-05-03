@@ -34,7 +34,7 @@ const options = {
       <h2>All Entries</h2>
       <ul>
         {
-          allEntries.map((entry: any) => (
+          allEntries.map((entry) => (
             <JournalEntryCard
               url={`/journal/${entry.id}`}
               title={entry.data.title}
