@@ -12,6 +12,9 @@ const options = {
   day: "numeric",
   year: "numeric",
 };
+
+// Sort entries by pubDate
+allEntries.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <style lang="scss">
