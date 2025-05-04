@@ -117,12 +117,12 @@ select {
   --flow-space: 0.5em;
 }
 
-h1 + * {
-  --flow-space: 2em;
-}
-
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
+}
+
+h1 + *:not(.lede) {
+  --flow-space: 2em;
 }
 
 blockquote > p {
