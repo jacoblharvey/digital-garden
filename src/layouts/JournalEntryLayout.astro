@@ -49,8 +49,7 @@ const options = {
     <p class="byline">
       {frontmatter.pubDate.toLocaleDateString(locale, options)}
     </p>
-    <!-- TODO: Hide TOC if there are no headings -->
-    <TableOfContents headings={headings} />
+    {headings.length > 0 && <TableOfContents headings={headings} />}
     <slot />
   </main>
 </BaseLayout>
