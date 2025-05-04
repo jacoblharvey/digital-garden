@@ -15,6 +15,7 @@ const options = {
 
 // Sort entries by pubDate
 allEntries.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+let firstEntry = allEntries.length > 0 ? allEntries[0] : undefined;
 ---
 
 <style lang="scss">
@@ -32,7 +33,9 @@ allEntries.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
       A collection of journal entries I've written. Keep what resonates and
       leave the rest. &#x270c;
     </p>
-    <p>Read my latest. <a href="/journal/mock">&#x2192;</a></p>
+    <p>
+      Read my latest. <a href={`/journal/${firstEntry.id}`}>&#x2192;</a>
+    </p>
     <h2>All Entries</h2>
     <ul>
       {
