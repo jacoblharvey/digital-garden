@@ -2,11 +2,12 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const pageTitle = "Home";
+let greetings = ["Hello", "Hi", "Hey", "Hiya", "Howzit"];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <main class="flow">
-    <h2>Hiya &#x270b;</h2>
+    <h2>{greetings[Math.floor(Math.random() * greetings.length)]} &#x270b;</h2>
     <p>
       This site is a work in progess. Check out the <a href="/about">About</a>
       page for more information.
