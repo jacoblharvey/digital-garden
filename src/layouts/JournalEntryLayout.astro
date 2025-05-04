@@ -12,6 +12,40 @@ const options = {
 };
 ---
 
+<style lang="scss">
+  @use "@styles/colors";
+  @use "@styles/size-steps";
+  @use "@styles/weights";
+
+  .lede {
+    font-size: size-steps.$step-2;
+    line-height: 1.3;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .byline {
+    color: colors.$battleship-gray;
+    font-size: size-steps.$step-0;
+    font-weight: weights.$semibold;
+    text-align: center;
+
+    --flow-space: 0.5em;
+  }
+
+  .byline + * {
+    --flow-space: 2em;
+  }
+
+  h1 + *:not(.lede) {
+    --flow-space: 2em;
+  }
+
+  .lede + *:not(.byline) {
+    --flow-space: 2em;
+  }
+</style>
+
 <BaseLayout pageTitle={frontmatter.title}>
   <main class="flow">
     <h1>{frontmatter.title}</h1>
