@@ -5,9 +5,12 @@ const { url, text } = Astro.props;
 <style lang="scss">
   @use "@styles/weights";
 
+  li {
+    padding: 4px 0;
+  }
+
   a > p {
     overflow: hidden;
-    font-weight: weights.$medium;
     text-overflow: ellipsis;
     white-space: nowrap;
   }

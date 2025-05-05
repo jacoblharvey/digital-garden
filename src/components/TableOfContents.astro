@@ -6,17 +6,90 @@ const { headings } = Astro.props;
 
 <style lang="scss">
   @use "@styles/colors";
+  @use "@styles/size-steps";
+  @use "@styles/weights";
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+    border-top: 1px solid colors.$border;
+    border-bottom: 1px solid colors.$border;
+  }
+
+  button {
+    display: block;
+    padding: 8px;
+    border: 0;
+    background-color: colors.$light;
+    cursor: pointer;
+  }
+
+  svg {
+    display: block;
+  }
+
+  p {
+    cursor: pointer;
+    font-size: size-steps.$step-2;
+    font-weight: weights.$medium;
+    user-select: none;
+  }
 
   ol {
+    display: none;
     margin: 0;
     list-style: none;
-    padding-inline-start: 0;
+    padding-inline-end: 40px;
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .open {
+    display: block;
   }
 </style>
 
-<nav>
-  <p>Contents</p>
-  <ol>
+<nav id="toc">
+  <div class="toc-header">
+    <button id="toc-button">
+      <svg
+        class="toc-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+      >
+        <path
+          fill="#000"
+          d="m15.872 12.351-6.13 5.503a.421.421 0 0 1-.222.136.385.385 0 0 1-.251-.028.453.453 0 0 1-.196-.182.548.548 0 0 1-.073-.276V6.496c0-.098.026-.194.073-.276a.453.453 0 0 1 .196-.182.385.385 0 0 1 .251-.028c.084.019.162.066.223.136l6.13 5.503c.04.046.072.1.094.16a.559.559 0 0 1-.095.543Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="toc-icon hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+      >
+        <path
+          fill="#000"
+          d="m12.351 15.872 5.503-6.13a.421.421 0 0 0 .136-.222.385.385 0 0 0-.028-.251.454.454 0 0 0-.182-.196.548.548 0 0 0-.276-.073H6.496a.548.548 0 0 0-.276.073.453.453 0 0 0-.182.196.385.385 0 0 0-.028.251c.019.084.066.162.136.223l5.503 6.13c.046.04.1.072.16.094a.559.559 0 0 0 .543-.095Z"
+        ></path>
+      </svg>
+    </button>
+    <p id="toc-heading">In this Entry</p>
+  </div>
+  <!-- TODO:  Decide if h3 should be indented under h2 -->
+  <ol id="toc-links">
     {
       headings.map((heading) => (
         <TOCLink
@@ -27,3 +100,27 @@ const { headings } = Astro.props;
     }
   </ol>
 </nav>
+
+<script>
+  const tocButton = document.getElementById("toc-button");
+  const tocLinks = document.getElementById("toc-links");
+  const tocHeading = document.getElementById("toc-heading");
+  const icons = Array.from(document.getElementsByClassName("toc-icon"));
+
+  const toggleToc = () => {
+    icons.forEach((icon) => {
+      icon.classList.toggle("hidden");
+    });
+    tocLinks?.classList.toggle("open");
+  };
+
+  tocButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleToc();
+  });
+
+  tocHeading?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleToc();
+  });
+</script>
