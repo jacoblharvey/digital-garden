@@ -25,6 +25,10 @@ const options = {
   }
 
   .byline {
+    display: flex;
+    max-width: 200px;
+    justify-content: space-between;
+    margin: 0 auto;
     color: colors.$battleship-gray;
     font-size: size-steps.$step-0;
     font-weight: weights.$semibold;
@@ -46,11 +50,12 @@ const options = {
   <main class="flow">
     <h1>{frontmatter.title}</h1>
     <p class="lede">{frontmatter.lede}</p>
-    <p class="byline">
-      {minutesRead}
-      &#x2022;
-      {frontmatter.pubDate.toLocaleDateString(locale, options)}
-    </p>
+    <span class="byline">
+      <!-- TODO: Switch to Day.js https://www.npmjs.com/package/dayjs -->
+      <p>{frontmatter.pubDate.toLocaleDateString(locale, options)}</p>
+      <p>&#x2022;</p>
+      <p>{minutesRead}</p>
+    </span>
     {headings.length > 0 && <TableOfContents headings={headings} />}
     <slot />
   </main>
