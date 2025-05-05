@@ -2,7 +2,7 @@
 import TableOfContents from "@components/TableOfContents.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const { frontmatter, headings } = Astro.props;
+const { frontmatter, headings, minutesRead } = Astro.props;
 
 const locale = "en-US";
 const options = {
@@ -47,6 +47,8 @@ const options = {
     <h1>{frontmatter.title}</h1>
     <p class="lede">{frontmatter.lede}</p>
     <p class="byline">
+      {minutesRead}
+      &#x2022;
       {frontmatter.pubDate.toLocaleDateString(locale, options)}
     </p>
     {headings.length > 0 && <TableOfContents headings={headings} />}
