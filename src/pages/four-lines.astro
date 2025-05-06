@@ -1,0 +1,135 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const pageTitle = "Four Lines";
+---
+
+<style lang="scss">
+  @use "@styles/colors";
+  @use "@styles/size-steps";
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+
+  .poem-line {
+    margin: 4px 0;
+  }
+
+  #char-count {
+    margin-top: 2px;
+    color: colors.$battleship-gray;
+    font-size: size-steps.$step-0;
+    text-align: right;
+  }
+
+  #poem-display {
+    margin-top: 32px;
+    text-align: center;
+    text-wrap: balance;
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+  <main class="flow">
+    <h1>{pageTitle}</h1>
+    <div>
+      <blockquote cite="https://www.youtube.com/watch?v=Fh9tMqpH8nc">
+        <q
+          >What I had to say to you, moreover, would not take long, to wit:
+          Practice any art, music, singing, dancing, acting, drawing, painting,
+          sculpting, poetry, fiction, essays, reportage, no matter how well or
+          badly, not to get money and fame, but to experience becoming, to find
+          out what&apos;s inside you, to make your soul grow.</q
+        >
+      </blockquote>
+      <p>
+        - Kurt Vonnegut, <cite>Letter to students at Xavier High School</cite>
+      </p>
+    </div>
+    <h2>Here's an Assignment for Tonight</h2>
+    <p>
+      Write a four line poem about anything, but rhymed. No fair tennis without
+      a net.
+    </p>
+    <div id="poem-app">
+      <form id="poem-form">
+        <label for="line-input" id="line-label">Line 1 / 4</label>
+        <input
+          type="text"
+          id="line-input"
+          maxlength="80"
+          placeholder="Write anything..."
+        />
+        <div id="char-count">0 / 80</div>
+        <button type="submit">Add Line</button>
+      </form>
+      <div id="poem-display"></div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById("poem-form");
+  const input = document.getElementById("line-input");
+  const display = document.getElementById("poem-display");
+  const label = document.getElementById("line-label");
+  const charCount = document.getElementById("char-count");
+
+  const lines = [];
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const value = input.value.trim();
+    if (!value) return;
+
+    lines.push(value);
+    input.value = "";
+    charCount.textContent = "0 / 80";
+
+    if (lines.length < 4) {
+      label.textContent = `Line ${lines.length + 1} / 4`;
+      input.focus();
+    } else {
+      form.style.display = "none";
+      renderPoem();
+    }
+  });
+
+  input.addEventListener("input", () => {
+    charCount.textContent = `${input.value.length} / 80`;
+  });
+
+  function renderPoem() {
+    const title = document.createElement("h2");
+    title.textContent = "Your Poem";
+    display.appendChild(title);
+
+    lines.forEach((line) => {
+      const div = document.createElement("div");
+      div.className = "poem-line";
+      div.textContent = line;
+      display.appendChild(div);
+    });
+
+    const resetBtn = document.createElement("button");
+    resetBtn.textContent = "Start Over";
+    resetBtn.addEventListener("click", () => {
+      lines.length = 0;
+      display.innerHTML = "";
+      form.style.display = "block";
+      label.textContent = "Line 1";
+      input.value = "";
+      charCount.textContent = "0 / 80";
+      input.focus();
+    });
+
+    display.appendChild(resetBtn);
+  }
+</script>
