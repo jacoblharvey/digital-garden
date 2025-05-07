@@ -1,0 +1,31 @@
+<!-- TODO: Replace with custom styles https://pagefind.app/docs/ui-usage/#customising-the-styles -->
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+
+<div id="search"></div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showImages: false,
+      processResult: (result) => ({
+        ...result,
+        url: result.url.endsWith("/") ? result.url.slice(0, -1) : result.url,
+      }),
+    });
+  });
+</script>
+
+<style lang="scss">
+  #search {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: #1a8fe3;
+    --pagefind-ui-text: #1b1b1b;
+    --pagefind-ui-background: #fff;
+    --pagefind-ui-border: #ebebeb;
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 4px;
+    --pagefind-ui-font: "EB Garamond";
+  }
+</style>

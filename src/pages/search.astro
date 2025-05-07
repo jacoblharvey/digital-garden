@@ -1,0 +1,13 @@
+---
+import Search from "@components/Search.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const pageTitle = "Search";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <main class="flow">
+    <h1>{pageTitle}</h1>
+    <Search />
+  </main>
+</BaseLayout>
