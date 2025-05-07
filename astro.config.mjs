@@ -1,4 +1,5 @@
 import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 import { remarkReadingTime } from "./src/scripts/remark-reading-time.mjs";
 
@@ -12,5 +13,5 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime],
   },
 
-  integrations: [sitemap()],
+  integrations: [sitemap(), robotsTxt()],
 });
