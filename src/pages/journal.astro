@@ -8,7 +8,6 @@ const allEntries = await getCollection("journal");
 const pageTitle = "Journal";
 const locale = "en-US";
 const options = {
-  timeZone: "America/Chicago",
   month: "short",
   day: "numeric",
   year: "numeric",
@@ -38,6 +37,8 @@ let firstEntry = allEntries.length > 0 ? allEntries[0] : undefined;
       Read my latest. <a href={`/journal/${firstEntry.id}`}>&#x2192;</a>
     </p>
     <h2>All Entries</h2>
+    <!-- TODO: Add pagination at some point https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading -->
+    <!-- TODO: Add journal search https://github.com/shishkin/astro-pagefind -->
     <ul>
       {
         allEntries.map((entry) => (
